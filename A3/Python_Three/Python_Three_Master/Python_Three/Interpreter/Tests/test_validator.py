@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Interpreter.validator import Validator
+from validator import Validator
 from datetime import datetime
 
 

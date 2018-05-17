@@ -1,4 +1,4 @@
-from Interpreter.database_handler import DatabaseHandler
+from database_handler import DatabaseHandler
 from unittest import TestCase
 
 

@@ -1,5 +1,5 @@
 from unittest import TestSuite, TextTestRunner, makeSuite
-from Interpreter.Tests.test_validator import TestValidator
+from Tests.test_validator import TestValidator
 
 
 def test_suite_validator():

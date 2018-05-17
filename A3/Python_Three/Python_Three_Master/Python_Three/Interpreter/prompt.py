@@ -1,8 +1,6 @@
 from cmd import Cmd
-from Interpreter.controller import Controller
+from controller import Controller
 from os import path, chdir, getcwd
-import re
-# from re import match, search
 
 
 class Shell(Cmd):

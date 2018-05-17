@@ -1,4 +1,4 @@
-from ..pickler import Pickler
+from pickler import Pickler
 from unittest import TestCase
 
 

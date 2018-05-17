@@ -1,37 +1,36 @@
 import re
 from copy import deepcopy
+from rule import *
 
 
 class Validator:
     def __init__(self):
         self.temp_dict = dict()
         self.valid_dict = dict()
-        self.empid = "^[A-Z][\d]{3}$"
-        self.gender = "^(M|F)$"
-        self.age = "^[\d]{2}$"
-        self.sales = "^[\d]{3}$"
-        self.bmi = "^((n|N)ormal)|((o|O)verweight)|((o|O)besity)|((u|U)nderweight)$"
-        self.salary = "^([\d]{2}|[\d]{3})$"
-        self.birthday = "^(((0[1-9])|([1-31]))|[1-2][0-9]|3(0|1))(/)(((0[1-9])|([1-12]))|1[0-2])(/)(19|20)[0-9]{2}$"
+        self.empid = IDRule()
+        self.gender = GenderRule()
+        self.age = AgeRule()
+        self.sales = SalesRule()
+        self.bmi = BMIRule()
+        self.salary = SalaryRule()
+        self.birthday = BirthdayRule()
 
     def check_all(self, new_value, new_key):
         """
         :param new_value:
         :param new_key:
         :return:
-        >>> v = Validator()
-        >>> v.checker({'ID': 'Q999', 'Gender': 'F', 'Age': '21', 'Sales': '001', 'BMI': 'Normal', 'Salary': '12',\
-                     'Birthday': '01/01/1996'})
-        True
         """
-        new_key = getattr(self, new_key.lower())
+        key_1 = new_key.lower()
+        key_2 = getattr(self, key_1)
+        key_3 = getattr(key_2, key_1)
         check_value = str(new_value)
         check_value = self.fix_bday_delims(check_value)
         check_value = self.fix_gender(check_value)
-        match = re.match(new_key, check_value)
+        match = re.match(key_3, check_value)
         if match:
-            a = check_value
-            return a
+            asd = check_value
+            return asd
         elif match is None:
             return False
 
@@ -94,3 +93,20 @@ class Validator:
 
     def return_dict(self):
         return self.valid_dict
+
+
+# a = Validator()
+# dictionary = {'ID': 'Q999', 'Gender': 'F', 'Age': '21',
+#               'Sales': '001', 'BMI': 'Normal', 'Salary': '12', 'Birthday': '01/01/1996'}
+#
+# a.checker(dictionary)
+# print(a.temp_dict)
+
+# key_1 = new_key.lower()
+# key_2 = getattr(self, key_1)
+# key_3 = key_2.rule
+# check_value = str(new_value)
+# check_value = self.fix_bday_delims(check_value)
+# check_value = self.fix_gender(check_value)
+# match = re.match(key_3, check_value)
+

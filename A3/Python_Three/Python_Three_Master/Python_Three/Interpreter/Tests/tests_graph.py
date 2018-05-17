@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Interpreter.chart import Graph, PieGraph, ScatterGraph, BarGraph
+from chart import Graph, PieGraph, ScatterGraph, BarGraph
 
 
 class TestCharts(TestCase):

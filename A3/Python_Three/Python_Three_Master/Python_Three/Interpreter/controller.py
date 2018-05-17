@@ -1,5 +1,6 @@
 from database_handler import DatabaseHandler
 from filehandler import FileHandler
+from validator import Validator
 from os import path
 from chart import Graph
 

@@ -1,5 +1,5 @@
 from mysql.connector import connect, cursor
-from Interpreter.database_abstract import DatabaseAbstract
+from database_abstract import DatabaseAbstract
 
 
 # Wesley

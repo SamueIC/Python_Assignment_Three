@@ -1,4 +1,4 @@
-from Interpreter.database_abstract import DatabaseAbstract
+from database_abstract import DatabaseAbstract
 from sqlite3 import connect
 
 

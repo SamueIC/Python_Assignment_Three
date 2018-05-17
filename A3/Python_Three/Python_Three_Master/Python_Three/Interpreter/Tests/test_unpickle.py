@@ -1,5 +1,5 @@
-from ..database_local import DBLocal
-from ..pickler import Pickler
+from database_local import DBLocal
+from pickler import Pickler
 from unittest import TestCase
 
 
