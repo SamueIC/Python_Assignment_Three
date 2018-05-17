@@ -12,6 +12,7 @@ class Controller:
         self.data = None
         self.filehandler = None
         self.graph = None
+        self.validator = Validator()
 
     def load(self, filename):
         """
@@ -29,7 +30,7 @@ class Controller:
         Read selected file
         """
         # James' changes (13/03)
-        result = self.filehandler.read()
+        result = self.validator.save_dict(self.filehandler.read())
         self.data = result
         print("")
         print(result)

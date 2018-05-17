@@ -44,8 +44,8 @@ class FileHandler:
 
 # Wesley
 class FileTypeAbstract(metaclass=ABCMeta):
-    def __init__(self):
-        self.validator = Validator()
+    # def __init__(self):
+    #     self.validator = Validator()
 
     @abstractmethod
     def read(self, filename):
@@ -85,7 +85,7 @@ class FileTypeXLSX(FileTypeAbstract):
                     data[empno] = record
                 empno += 1
             # print(data)
-            result = self.validator.save_dict(data)
+            result = data
             return result
         except PermissionError:
             print("Sorry, you don't have enough permissions to access this file")
@@ -117,7 +117,7 @@ class FileTypeCSV(FileTypeAbstract):
                     empno += 1
                 # print(data)
             # James' changes (13/03)
-            result = self.validator.save_dict(data)
+            result = data
             return result
         except TypeError:
             print("Error!!")
@@ -149,7 +149,8 @@ class FileTypeTXT(FileTypeAbstract):
                         print("File error")
                         raise ValueError
                 empno += 1
-            result = self.validator.save_dict(data)
+            result = data
+            # result = self.validator.save_dict(data)
             return result
 
         except Exception as e:
