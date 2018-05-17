@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod
 from csv import DictReader as CSVDictReader
 from openpyxl import load_workbook, utils
 from datetime import datetime, date
-from Interpreter.validator import Validator
+from validator import Validator
 
 
 # James
@@ -12,7 +12,6 @@ class FileHandler:
     def __init__(self, file_name):
         self.filename = file_name
         self.file_type = None
-        # self.valid = Validator()
 
     # James
     def file_exist(self):
@@ -47,7 +46,7 @@ class FileHandler:
 class FileTypeAbstract(metaclass=ABCMeta):
     def __init__(self):
         self.validator = Validator()
-    # Wesley
+
     @abstractmethod
     def read(self, filename):
         pass
@@ -86,7 +85,7 @@ class FileTypeXLSX(FileTypeAbstract):
                     data[empno] = record
                 empno += 1
             # print(data)
-            result = Validator.save_dict(data)
+            result = self.validator.save_dict(data)
             return result
         except PermissionError:
             print("Sorry, you don't have enough permissions to access this file")
@@ -118,7 +117,7 @@ class FileTypeCSV(FileTypeAbstract):
                     empno += 1
                 # print(data)
             # James' changes (13/03)
-            result = Validator.save_dict(data)
+            result = self.validator.save_dict(data)
             return result
         except TypeError:
             print("Error!!")
