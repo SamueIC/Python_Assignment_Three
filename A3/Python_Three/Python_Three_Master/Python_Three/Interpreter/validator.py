@@ -93,20 +93,3 @@ class Validator:
 
     def return_dict(self):
         return self.valid_dict
-
-
-# a = Validator()
-# dictionary = {'ID': 'Q999', 'Gender': 'F', 'Age': '21',
-#               'Sales': '001', 'BMI': 'Normal', 'Salary': '12', 'Birthday': '01/01/1996'}
-#
-# a.checker(dictionary)
-# print(a.temp_dict)
-
-# key_1 = new_key.lower()
-# key_2 = getattr(self, key_1)
-# key_3 = key_2.rule
-# check_value = str(new_value)
-# check_value = self.fix_bday_delims(check_value)
-# check_value = self.fix_gender(check_value)
-# match = re.match(key_3, check_value)
-

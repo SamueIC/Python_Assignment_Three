@@ -79,3 +79,18 @@ class Controller:
         if self.data is not None:
             return True
         return False
+
+    def change_regex(self, rule, new_re):
+        """
+        Changes the Regex value of the selected data point (e.g. empid, gender, age)
+        WARNING: ONLY RECOMMENDED FOR THOSE WHO ARE CONFIDENT WITH PYTHON 3.6 REGEX
+        Example of use: change_regex empid="^[A-Z][\d]{4}$"
+        :param rule: "empid" or "gender"
+        :param new_re: "^[A-Z][\d]{3}$" <-- this is the default value for empid regex
+        :return: print new regex value
+        """
+        setattr(self.validator.__getattribute__(rule), rule, new_re)
+        print("The new regex value for {0} is now: {1}".format(rule, new_re.strip('"')))
+
+    def get_regex(self, regex):
+        print(getattr(self.validator.__getattribute__(regex), regex).strip('"'))

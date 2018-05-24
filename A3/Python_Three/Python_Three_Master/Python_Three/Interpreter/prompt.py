@@ -17,6 +17,42 @@ class Shell(Cmd):
         self.file = None
         self.directory = path.realpath(path.curdir)
 
+    def do_change_regex(self, arg):
+        """
+        Syntax:
+            change_regex [regex_value=NEW_VALUE]
+            Changes the regex value of the specified attribute
+
+        :param arg:
+            regex_value: [string]
+            NEW_VALUE: [regex string]
+
+        :return:
+            Prints new regex value once previous value is overwritten
+        """
+        arg, arg2 = arg.split("=")
+        try:
+            self.controller.change_regex(arg, arg2)
+        except Exception as e:
+            print(e)
+
+    def do_get_regex(self, arg):
+        """
+        Syntax:
+            get_regex [regex_value]
+            Returns the regex value of the specified attribute
+
+        :param arg:
+            regex_value: [string]
+
+        :return:
+            Prints the regex value of the specified attribute
+        """
+        try:
+            self.controller.get_regex(arg)
+        except Exception as e:
+            print(e)
+
     # Wesley
     def do_cd(self, arg):
         """

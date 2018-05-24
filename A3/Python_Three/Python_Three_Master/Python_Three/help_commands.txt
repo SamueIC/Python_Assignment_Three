@@ -1,3 +1,26 @@
+change_regex
+	Syntax:
+        change_regex [regex_value=NEW_VALUE]
+        Changes the regex value of the specified attribute
+
+    :param arg:
+        regex_value: [string]
+        NEW_VALUE: [regex string]
+
+    :return:
+        Prints new regex value once previous value is overwritten
+
+get_regex
+	Syntax:
+        get_regex [regex_value]
+        Returns the regex value of the specified attribute
+
+    :param arg:
+        regex_value: [string]
+
+    :return:
+        Prints the regex value of the specified attribute
+
 cd
 	Syntax:
         cd [path]
